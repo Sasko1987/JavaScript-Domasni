@@ -184,7 +184,6 @@ mathMethod(44);
 //б. Да се декларира функција која што ќе има еден параметар month. Внатре во функцијата да се искористи switch услов кој што за даден месец како аргумент, ќе го враќа бројот на денови од тој месец. За Февруари да се претпостави дека секогаш ќе има 28 дена. Доколку се внесе вредност која што не е месец, да се испринта “Invalid input” во конзолата. Пр. Input: “June”, Output: 30
 
 function daysInMonth(month) {
-  let days;
   month = month.toLowerCase();
   switch (month) {
     case "january":
@@ -194,21 +193,20 @@ function daysInMonth(month) {
     case "august":
     case "october":
     case "december":
-      days = 31;
+      console.log(`The month ${month} have 31 days`);
       break;
     case "april":
     case "june":
     case "september":
     case "november":
-      days = 30;
+      console.log(`The month ${month} have 30 days`);
       break;
     case "february":
-      days = 28;
+      console.log(`The month ${month} have 28 days`);
       break;
     default:
       console.log("Inavlid Input");
   }
-  return console.log(`Input: ${month}, Output: ${days}`);
 }
 
 daysInMonth("june");
