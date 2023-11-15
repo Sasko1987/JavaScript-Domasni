@@ -372,58 +372,62 @@ let zooAnimals = [
     ],
   },
 ];
-
 // Да се најдат решенија на барањата подолу:
 
 // а. испечатете ги имињата на животните кои имаат популарност поголема од 4
 
-let popularAnimals = zooAnimals.filter((animals) => animals.popularity > 4);
-zooAnimals.forEach((animals) => console.log(animals.name));
+let highPopularity = zooAnimals.filter((animal) => animal.popularity > 4);
+
+highPopularity.forEach((animals) => console.log(animals.name));
 
 // б. отпечатете го името на најстариот слон
 
-let oldestElephant = zooAnimals
-  .find((animal) => animal.name === "elephants")
-  .residents.reduce((oldest, current) =>
-    oldest.age > current.age ? oldest : current
-  );
+let elephantsGroup = zooAnimals.find((animal) => animal.name === "elephants");
+let oldestElephant = elephantsGroup.residents.reduce((oldest, current) =>
+  oldest.age > current.age ? oldest : current
+);
 
-// console.log(oldestElephant.name);
+console.log(oldestElephant.name);
 
 // в. испечатете ги сите имиња на пингвини кои се помали од 10 години и се женки
 
-let femalePenguins = zooAnimals
-  .find((animal) => animal.name === "penguins")
-  .residents.filter((animal) => animal.sex === "female" && animal.age < 10);
+let penguinsGroup = zooAnimals.find((animal) => animal.name === "penguins");
+console.log(penguinsGroup);
+let femalePenguin = penguinsGroup.residents.filter(
+  (femaleAnimal) => femaleAnimal.sex === "female" && femaleAnimal.age < 10
+);
 
-femalePenguins.forEach((penguin) => console.log(penguin.name));
+femalePenguin.forEach((penguin) => console.log(penguin.name));
 
 // г. најдете ја групата животни чие име има најмногу букви и потоа испечатете го збирот на возраста на жителите
 
-let longestName = zooAnimals.reduce((longest, current) =>
-  longest.name.length > current.name.length ? longest : current
+let longestName = zooAnimals.reduce((longest, shortest) =>
+  longest.name.length > shortest.name.length ? longest : shortest
 );
 
-let sumOfAges = longestName.residents.reduce((acc, curr) => acc + curr.age, 0);
+let sumAge = longestName.residents.reduce((age, curr) => age + curr.age, 0);
 
 console.log(longestName);
-console.log(sumOfAges);
+console.log(sumAge);
 
 // д. најдете која група на животни има најмал број жители и најголем број жители, потоа направете нова низа која ги содржи сите имиња на жителите
 
-let leastResidence = zooAnimals.reduce((max, min) =>
-  max.residents < min.residents ? max : min
+let biggestGroup = zooAnimals.reduce((big, small) =>
+  big.residents.length > small.residents.length ? big : small
 );
 
-let mostResisdence = zooAnimals.reduce((min, max) =>
-  min.residents > max.residents ? min : max
-);
+console.log(biggestGroup);
 
-let newZooAnimals = [
-  ...leastResidence.residents.map((resident) => resident.name),
-  ...mostResisdence.residents.map((resident) => resident.name),
+let smallestGroup = zooAnimals.reduce((small, big) =>
+  small.residents.length < big.residents.length ? small : big
+);
+console.log(smallestGroup);
+
+let bigSmallGroup = [
+  ...smallestGroup.residents.map((animal) => animal.name),
+  ...biggestGroup.residents.map((animal) => animal.name),
 ];
-console.log(newZooAnimals);
+console.log(bigSmallGroup);
 
 // Задача 5.
 
