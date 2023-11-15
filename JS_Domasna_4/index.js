@@ -129,15 +129,17 @@ const countries = [
 // а. Испечатете ги сите земји што имаат „land“ во своето име и направете ги со големи букви.
 
 let landCountries = countries.filter((country) => country.includes("land"));
-console.log(landCountries);
-
+// console.log(landCountries);
+landCountries.forEach((country) => console.log(country.toUpperCase()));
 // б. Испечатете ги сите земји што завршуваат со 'ia' и нивното име е поголемо од 7 букви.
 
 function countriesWithIa(country) {
   return country.endsWith("ia") && country.length > 7;
 }
 let iaCountries = countries.filter(countriesWithIa);
-console.log(iaCountries);
+// console.log(iaCountries);
+
+iaCountries.forEach((country) => console.log(country));
 
 // ### Задача 4.
 
