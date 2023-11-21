@@ -1,0 +1,17 @@
+fieldset {
+  width: 500px;
+  margin: auto;
+}
+
+form {
+  text-align: center;
+}
+
+form input {
+  margin: 5px 0;
+}
+
+#registerButton {
+  margin: 10px 0;
+  padding: 5px 30px;
+}

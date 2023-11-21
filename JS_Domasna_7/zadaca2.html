@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zadaca 2</title>
+    <link rel="stylesheet" href="zadaca2.css" />
+  </head>
+  <body>
+    <!-- Задача 2.
+Да се симулира форма за регистрација на корисници. Формата треба да ги содржи следниве инпут полиња:
+
+First name
+Last name
+Email
+Password
+Confirm password
+и секако на крај да има Register копче кое што при клик доколку корисникот ги пополнил сите полиња и доколку password и confirm passwоrd полињата имаат иста вредност, во пребарувачот со помош на alert методот да се испише пораката: “Registration Successful!” заедно со името презимето и самиот e-mail. Доколку вредностите на овие две полиња не се совпаѓаат, да се испише пораката: “Passwords do not match. Please try again.” JavaScript кодот треба да биде напишан во посебен фајл. Дополнително: Формата да се стилизира минимално со CSS чиј што код треба да биде дефиниран во посебен фајл. -->
+
+    <fieldset>
+      <form action="">
+        <label for="first-name">First Name</label><br />
+        <input
+          type="text"
+          name="first-name"
+          id="firstName"
+          placeholder="Enter your first name"
+          required
+        /><br />
+        <label for="last-name">Last Name</label><br />
+        <input
+          type="text"
+          name="last-name"
+          id="lastName"
+          placeholder="Enter your last name"
+          required
+        /><br />
+        <label for="email">E-mail</label><br />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your e-mail"
+          required
+        /><br />
+        <label for="password">Password</label><br />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        /><br />
+        <label for="confirm-password">Confirm Password</label><br />
+        <input
+          type="password"
+          name="confirm-password"
+          id="confirmPassword"
+          placeholder="Confirm your password"
+          required
+        /><br />
+        <button id="registerButton">Register</button>
+      </form>
+    </fieldset>
+  </body>
+  <script src="zadaca2.js"></script>
+</html>
