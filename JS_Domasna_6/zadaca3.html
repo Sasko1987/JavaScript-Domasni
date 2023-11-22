@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Quiz</title>
+  </head>
+  <body>
+    <div id="quiz-container">
+      <!-- Quiz content will be dynamically generated here -->
+    </div>
+  </body>
+  <script>
+    const quizData = [
+      {
+        question: "What is the capital of France?",
+        options: ["Berlin", "Madrid", "Paris", "Rome"],
+        correctAnswer: "Paris",
+      },
+      {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Venus"],
+        correctAnswer: "Mars",
+      },
+      {
+        question: "What is the largest mammal on Earth?",
+        options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+        correctAnswer: "Blue Whale",
+      },
+      {
+        question: "In which year did the Titanic sink?",
+        options: ["1905", "1912", "1920", "1931"],
+        correctAnswer: "1912",
+      },
+      {
+        question: "Who wrote 'Romeo and Juliet'?",
+        options: [
+          "Charles Dickens",
+          "Jane Austen",
+          "William Shakespeare",
+          "Mark Twain",
+        ],
+        correctAnswer: "William Shakespeare",
+      },
+    ];
+
+    function quizQuestions(number) {
+      const questions = quizData.filter(
+        (questionCollection) => questionCollection.question
+      );
+      const container = document.createElement("div");
+      document.body.appendChild(container);
+      container.style.cssText = `
+      width: 400px; 
+      height: 400px; 
+      display: flex; 
+      flex-direction: column; justify-content: space-between; margin: 10px auto;
+      border: 1px solid grey;
+      border-radius: 10px;
+      box-shadow: 5px 5px 5px grey`;
+
+      const h2 = document.createElement("h2");
+      container.appendChild(h2);
+      h2.textContent = questions[number].question;
+      h2.style.textAlign = "center";
+
+      for (let i = 0; i < 4; i++) {
+        const radioContainer = document.createElement("div");
+        container.appendChild(radioContainer);
+
+        const radioButton = document.createElement("input");
+        radioButton.setAttribute("type", "radio");
+        radioButton.name = "option";
+
+        const label = document.createElement("label");
+        label.textContent = questions[number].options[i];
+        radioContainer.appendChild(radioButton);
+        radioContainer.appendChild(label);
+      }
+
+      // for (let i = 0; i < 4; i++) {
+      //   const paragraph = document.createElement("p");
+      //   document.body.appendChild(paragraph);
+      //   paragraph.textContent = questions[number].options[i];
+      // }
+      const button = document.createElement("button");
+      container.appendChild(button);
+      button.textContent = "Submit";
+      button.style.cssText = `
+      display: block; 
+      padding:18px 100px; 
+      margin-top: 20px;
+      background-color: #8E44AD;
+      color: white;
+      border: none;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px `;
+
+      // const paragraph = document.createElement("p");
+      // document.body.appendChild(paragraph);
+      // paragraph.textContent = questions[number].options[0];
+      // const secondParagraph = document.createElement("p");
+      // document.body.appendChild(secondParagraph);
+      // secondParagraph.textContent = questions[number].options[1];
+      // const thirdParagraph = document.createElement("p");
+      // document.body.appendChild(thirdParagraph);
+      // thirdParagraph.textContent = questions[number].options[2];
+      // const forthParagraph = document.createElement("p");
+      // document.body.appendChild(forthParagraph);
+      // forthParagraph.textContent = questions[number].options[3];
+      // const radioButton = document.createElement("input");
+      // radioButton.setAttribute("type", "radio");
+      // document.body.insertBefore(radioButton, paragraph);
+    }
+
+    quizQuestions(0);
+    quizQuestions(1);
+    quizQuestions(2);
+    quizQuestions(3);
+    quizQuestions(4);
+  </script>
+</html>

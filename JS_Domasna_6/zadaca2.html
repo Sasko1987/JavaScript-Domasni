@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ol id="book-list">
+      <li>The Great Gatsby</li>
+      <li>To Kill a Mockingbird</li>
+      <li>1984</li>
+      <li>The Catcher in the Rye</li>
+      <li>Animal Farm</li>
+      <li>Brave New World</li>
+      <li>Fahrenheit 451</li>
+      <li>Lord of the Flies</li>
+      <li>The Hobbit</li>
+      <li>Harry Potter and the Sorcerer's Stone</li>
+    </ol>
+  </body>
+  <script>
+    //     а. Да се напише функција oddListElements која што ќе ја направи позадинската боја на непарните елементи во “lightblue”
+
+    function oddListElements() {
+      const oddElements = document.querySelectorAll("#book-list li");
+
+      for (let i = 0; i < oddElements.length; i++) {
+        if (i % 2 === 0) {
+          oddElements[i].style.background = "lightblue";
+        }
+      }
+    }
+
+    oddListElements();
+
+    // б. Да се напише функција „changeBookTitle“ која ќе има три параметри:
+
+    // првиот параметар ќе биде „orderedList“ кој ќе прифаќа подредена html листа
+    // вториот параметар ќе биде „oldTitle“ што ќе биде некој наслов на веќе постоеча книга во листата
+    // третиот параметар ќе биде "newTitle" кој ќе биде замена за стариот наслов во листата
+    // Кога ќе се повика оваа функција со овие параметри, треба да го најде стариот наслов(oldTitle) и да го замени со новиот наслов(newTitle) во листата.
+
+    // Пример: changeBookTitle(bookList, "Lord of the Flies", "The Alchemist")
+
+    // Tреба да го замени насловот на книгата "Lord of the Flies" со новиот наслов "The Alchemist"
+
+    function changeBookTitle(orderedList, oldTitle, newTitle) {
+      const bookList = orderedList.getElementsByTagName("li");
+      for (let i = 0; i < bookList.length; i++) {
+        if (bookList[i].textContent === oldTitle) {
+          bookList[i].textContent = newTitle;
+          break;
+        }
+      }
+    }
+
+    const bookList = document.getElementById("book-list");
+
+    changeBookTitle(bookList, "Lord of the Flies", "The Alchemist");
+
+    //     в. Да се напише функција „removeBook“, која ќе има два параметри:
+
+    // првиот ќе биде „orderedList“ кој ќе прифаќа подредена html листа
+    // вториот ќе биде „bookTitle“ кој ќе биде наслов на таа подредена HTML листа
+    // Кога ќе се повика функцијата со соодветните параметри, треба да ја избрише книгата од подредената листа
+
+    // Пример: removeBook(bookList, "The Catcher in the Rye")
+
+    // Треба да го избрише насловот "The Catcher in the Rye" од листата
+
+    function removeBook(orderedList, bookTitle) {
+      let books = orderedList.getElementsByTagName("li");
+
+      for (let i = 0; i < books.length; i++) {
+        if (books[i].textContent === bookTitle) {
+          books[i].remove();
+          break;
+        }
+      }
+    }
+
+    removeBook(bookList, "The Catcher in the Rye");
+  </script>
+</html>

@@ -1,0 +1,28 @@
+<!-- Задача 1.
+Даден ви е следниов html документ: -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Manipulation</title>
+  </head>
+  <body>
+    <ul>
+      <li>Mercedes</li>
+      <li>BMW</li>
+      <li>Audi</li>
+    </ul>
+    <script>
+      //  Да се направат сите елементи од листата во сина боја и потоа да се додаде марката “Ferrari” во листата.
+
+      const listSelection = document.querySelector("ul");
+      listSelection.style.color = "blue";
+      const newElement = document.createElement("li");
+      newElement.textContent = "Ferrari";
+      console.log(newElement);
+      listSelection.appendChild(newElement);
+    </script>
+  </body>
+</html>
