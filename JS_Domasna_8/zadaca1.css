@@ -1,5 +1,21 @@
 #container {
   width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.user-info {
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 20px;
+  width: 15%;
+  height: 200px;
+}
+
+.user-info:hover {
+  box-shadow: 5px 5px 5px gray;
 }
 
 .name::before {
@@ -18,7 +34,5 @@
 }
 
 .company {
-  border-bottom: 1px solid gray;
   margin-bottom: 20px;
-  padding-bottom: 20px;
 }

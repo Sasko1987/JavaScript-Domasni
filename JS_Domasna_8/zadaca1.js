@@ -16,6 +16,8 @@ async function getData() {
     const data = await response.json();
     const container = document.getElementById("container");
     data.forEach((el) => {
+      const userInfo = document.createElement("div");
+      userInfo.classList.add("user-info");
       const paragraphName = document.createElement("p");
       paragraphName.setAttribute("class", "name");
       const paragraphPhone = document.createElement("p");
@@ -25,9 +27,10 @@ async function getData() {
       paragraphName.textContent = el.name;
       paragraphPhone.textContent = el.phone;
       paragraphCompany.textContent = el.company.name;
-      container.appendChild(paragraphName);
-      container.appendChild(paragraphPhone);
-      container.appendChild(paragraphCompany);
+      userInfo.appendChild(paragraphName);
+      userInfo.appendChild(paragraphPhone);
+      userInfo.appendChild(paragraphCompany);
+      container.appendChild(userInfo);
     });
   } catch (error) {
     console.log(error);
